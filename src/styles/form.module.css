@@ -1,0 +1,211 @@
+:root {
+  --color-before: #fac95f;
+  --color-before-two: #fdbe36;
+}
+.form_control {
+  margin: 3px;
+  width: 100%;
+  height: 32px;
+  background: rgb(251, 251, 251);
+}
+.contenedor_two {
+  position: relative;
+  width: 100%;
+  min-height: 90.6vh;
+  background-color: #fff;
+  overflow: hidden;
+}
+.contenedor_two::before {
+  content: '';
+  position: absolute;
+  width: 1200px;
+  height: 1000px;
+  border-radius: 10%;
+  background: linear-gradient(-45deg, var(--color-before), var(--color-before-two));
+  top: 66%;
+  left: 105%;
+  transform: translateX(-70%);
+  z-index: 6;
+  transition: .3s ease-in-out;
+}
+.form_contenedor {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 5px;
+  left: 0;
+}
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 5rem;
+  overflow: hidden;
+  transition: 0.2s 0.7 ease-in-out;
+}
+.buro {
+  position: absolute;
+  top: 49%;
+  left: 19.5%;
+  transform: translate(-50%, -50%);
+  width: 40%;
+  z-index: 8;
+  transition: .5s ease-in-out;
+}
+.buro_form {
+  z-index: 2;
+}
+.image_form {
+  width: 300px;
+}
+.form_panel {
+  position: absolute;
+  width: 100%;
+  top: 5%;
+  left: -10%;
+  display: grid;
+  grid-template-columns: repeat(1, 2fr);
+}
+.panel_two {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  z-index: 7;
+  text-align: center;
+}
+.panel_two h3 {
+  font-weight: 600;
+  line-height: 3;
+  font-size: 1.5em;
+}
+
+input{
+  margin: 2px 0;
+}
+@media (max-width: 900px) {
+  .image_form {
+    display: none;
+  }
+  .form_panel {
+    position: absolute;
+    width: 100%;
+    top: 82%;
+    left: -10%;
+    display: grid;
+    grid-template-columns: repeat(1, 2fr);
+    color: #fff;
+  }
+  .buro {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 55%;
+    z-index: 8;
+    transition: .5s ease-in-out;
+  }
+  .contenedor_two::before {
+    content: '';
+    position: absolute;
+    width: 1200px;
+    height: 1000px;
+    border-radius: 10%;
+    background: linear-gradient(-45deg, var(--color-before), var(--color-before-two));
+    top: 80%;
+    left: 105%;
+    transform: translateX(-70%);
+    z-index: 6;
+    transition: .3s ease-in-out;
+  }
+  .contenedor_two {
+    position: relative;
+    width: 100%;
+    min-height: 93.7vh;
+    background-color: #fff;
+    overflow: hidden;
+  }
+}
+@media (max-width: 700px) {
+  .image_form {
+    display: none;
+  }
+  .form_panel {
+    position: absolute;
+    width: 100%;
+    top: 82%;
+    left: -5%;
+    display: grid;
+    grid-template-columns: repeat(1, 2fr);
+    color: #fff;
+  }
+  .buro {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    z-index: 8;
+    transition: .5s ease-in-out;
+  }
+  .contenedor_two::before {
+    content: '';
+    position: absolute;
+    width: 1200px;
+    height: 1000px;
+    border-radius: 10%;
+    background: linear-gradient(-45deg, var(--color-before), var(--color-before-two));
+    top: 80%;
+    left: 130%;
+    transform: translateX(-70%);
+    z-index: 6;
+    transition: .3s ease-in-out;
+  }
+  .contenedor_two {
+    position: relative;
+    width: 100%;
+    min-height: 93.7vh;
+    background-color: #fff;
+    overflow: hidden;
+  }
+}
+@media (max-width: 500px){
+  .form_panel {
+    position: absolute;
+    width: 100%;
+    top: 82%;
+    left: 0;
+    display: grid;
+    grid-template-columns: repeat(1, 2fr);
+    color: #fff;
+  }
+  .buro {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120%;
+    z-index: 8;
+    transition: .5s ease-in-out;
+  }
+  .contenedor_two::before {
+    content: '';
+    position: absolute;
+    width: 1200px;
+    height: 1000px;
+    border-radius: 10%;
+    background: linear-gradient(-45deg, var(--color-before), var(--color-before-two));
+    top: 80%;
+    left: 130%;
+    transform: translateX(-70%);
+    z-index: 6;
+    transition: .3s ease-in-out;
+  }
+  .contenedor_two {
+    position: relative;
+    width: 100%;
+    min-height: 93.7vh;
+    background-color: #fff;
+    overflow: hidden;
+  }
+}
