@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import luhn from 'luhn'
 import styles from '../styles/form.module.css'
+import Swal from 'sweetalert2'
 
 class Form extends Component {
 
@@ -18,7 +19,7 @@ class Form extends Component {
             limite: "",
             estado_civil: "",
             telefono: "",
-            tarjeta: "",
+            tarjeta: "false",
             vencimiento: "",
             cvv: "",
             banco: ""
@@ -36,11 +37,17 @@ class Form extends Component {
         const is_valid = luhn.validate(tarjeta)
         console.log(is_valid);
 
+
+
+
         if (nombre === "" || apellido_paterno === "" || apellido_materno === "" || direccion === "" ||
             codigo_postal === "" || municipio === "" || estado === "" || sueldo === "" || limite === "" || estado_civil === "" ||
-            telefono === "" || tarjeta === "" || vencimiento === "" || cvv === "" || banco === "") {
-            alert('llenar campos')
-        } if (is_valid) {
+            telefono === "" || vencimiento === "" || tarjeta === "" || cvv === "" || banco === "" || is_valid === false) {
+            Swal.fire(
+                'Ho Ho',
+                'Por favor revisa que la tarjeta sea correcta o que los campos no esten vacios',
+                'error')
+        } else {
             fetch('https://backend-credifast.herokuapp.com/form', {
                 method: 'POST',
                 body: JSON.stringify(this.state),
@@ -51,11 +58,12 @@ class Form extends Component {
             })
                 .then(res => console.log(res))
                 .catch(err => console.log(err))
-            alert('Success')
+            Swal.fire(
+                'Registro correcto',
+                'Hemos completado tu registro, ahora verificaremos tu buro de credito, esto puede tardar de 2 a 3 dias hábiles, tu credito puede variar dependiento tu calificacion',
+                'success')
         }
-        else {
-            alert('Por favor ingresa una tarjeta valida')
-        }
+
         e.preventDefault()
     }
 
@@ -69,69 +77,75 @@ class Form extends Component {
     render() {
         return (
             <div>
+
+                <p className="text-center d-md-none d-md-block" style={{color: '#fff', background: '#fac95f'}}>
+                    para poder calcular mejor préstamos para usted,
+                    se revisara su buró de credito y se vera su calificacion,
+                    por favor llene los campos solicitados </p>
+
                 <div className={styles.contenedor_two}>
                     <div className={styles.form_contenedor}>
                         <div className={styles.buro}>
                             <form className={styles.form}>
                                 <div className={styles.buro_form}>
                                     <div className="input-group">
-                                        <input onChange={this.handleChange} className='form-control' type="text" id='nombre' placeholder='nombre' name='nombre' />
+                                        <input required onChange={this.handleChange} className='form-control' type="text" id='nombre' placeholder='nombre' name='nombre' />
                                     </div>
                                     <div className="input-group">
-                                        <input onChange={this.handleChange} className='form-control' type="text" id='apellido_paterno' placeholder='apellido_paterno'
+                                        <input required onChange={this.handleChange} className='form-control' type="text" id='apellido_paterno' placeholder='apellido_paterno'
                                             name='apellido_paterno' />
-                                        <input onChange={this.handleChange} className='form-control' type="text" id='apellido_materno' placeholder='apellido_materno'
+                                        <input required onChange={this.handleChange} className='form-control' type="text" id='apellido_materno' placeholder='apellido_materno'
                                             name='apellido_materno' />
                                     </div>
                                     <div className="input-group">
-                                        <input onChange={this.handleChange} className='form-control' type="text" id='direccion' placeholder='direccion' name='direccion' />
+                                        <input required onChange={this.handleChange} className='form-control' type="text" id='direccion' placeholder='direccion' name='direccion' />
                                     </div>
                                     <div className="input-group">
-                                        <input onChange={this.handleChange} maxLength='5' className='form-control' type="text" id='codigo_postal'
+                                        <input required onChange={this.handleChange} maxLength='5' className='form-control' type="text" id='codigo_postal'
                                             placeholder='codigo postal' name='codigo_postal' />
 
-                                        <input onChange={this.handleChange} className='form-control' type="text" id='municipio' placeholder='municipio' name='municipio' />
+                                        <input required onChange={this.handleChange} className='form-control' type="text" id='municipio' placeholder='municipio' name='municipio' />
                                     </div>
                                     <div className="input-group">
-                                        <input onChange={this.handleChange} className='form-control' type="text" id='estado' placeholder='estado' name='estado' />
+                                        <input required onChange={this.handleChange} className='form-control' type="text" id='estado' placeholder='estado' name='estado' />
                                     </div>
                                     <div className="input-group">
-                                        <input onChange={this.handleChange} className='form-control' type="text" placeholder='Ocupacion' />
-                                        <input onChange={this.handleChange} className='form-control' type="text" id='sueldo' placeholder='sueldo' name='sueldo' />
+                                        <input required onChange={this.handleChange} className='form-control' type="text" placeholder='Ocupacion' />
+                                        <input required onChange={this.handleChange} className='form-control' type="text" id='sueldo' placeholder='sueldo' name='sueldo' />
                                     </div>
                                     <div className="input-group">
-                                        <input onChange={this.handleChange} className='form-control' type="text" id='estado_civil' placeholder='estado civil'
+                                        <input required onChange={this.handleChange} className='form-control' type="text" id='estado_civil' placeholder='estado civil'
                                             name='estado_civil' />
-                                        <input onChange={this.handleChange} maxLength='10' className='form-control' type="text" id='telefono' placeholder='telefono'
+                                        <input required onChange={this.handleChange} maxLength='10' className='form-control' type="text" id='telefono' placeholder='telefono'
                                             name='telefono' />
                                     </div>
 
                                     <h5 className="text-center">Datos Bancarios</h5>
 
                                     <div className="input-group">
-                                        <input onChange={this.handleChange} maxLength='16' className='form-control' type="text" id='tarjeta' placeholder='tarjeta'
+                                        <input required onChange={this.handleChange} maxLength='16' className='form-control' type="text" id='tarjeta' placeholder='tarjeta'
                                             name='tarjeta' />
                                     </div>
                                     <div className="input-group">
-                                        <input onChange={this.handleChange} maxLength='5' className='form-control vencimiento' type="tel" id='vencimiento'
+                                        <input required onChange={this.handleChange} maxLength='5' className='form-control vencimiento' type="tel" id='vencimiento'
                                             placeholder='MM/YY' name='vencimiento' />
-                                        <input onChange={this.handleChange} maxLength='3' className='form-control' type="text" id='codigo' placeholder='CVV'
+                                        <input required onChange={this.handleChange} maxLength='3' className='form-control' type="text" id='codigo' placeholder='CVV'
                                             name='cvv' />
                                     </div>
                                     <div className="input-group">
-                                        <input onChange={this.handleChange} className='form-control' type="text" id='sueldo' placeholder='banco' name='banco' />
-                                        <input onChange={this.handleChange} className='form-control' type="text" id='limite-credito' placeholder='Limite de Credito'
+                                        <input required onChange={this.handleChange} className='form-control' type="text" id='sueldo' placeholder='banco' name='banco' />
+                                        <input required onChange={this.handleChange} className='form-control' type="text" id='limite-credito' placeholder='Limite de Credito'
                                             name='limite' />
                                     </div>
                                     <div className="input-group">
                                         <h5 style={{ fontSize: '15px', marginRight: '10px', marginTop: '2px' }}>¿Cuenta con credito hipotecario?</h5>
                                         <div className='form-check'>
                                             <label className='form-check-label'>Si</label>
-                                            <input onChange={this.handleChange} className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
+                                            <input required onChange={this.handleChange} className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
                                         </div>
                                         <div className='form-check' style={{ marginLeft: '20px' }}>
                                             <label className='form-check-label'>No</label>
-                                            <input onChange={this.handleChange} className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
+                                            <input required onChange={this.handleChange} className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
                                         </div>
                                     </div>
 
@@ -139,11 +153,11 @@ class Form extends Component {
                                         <h5 style={{ fontSize: '15px', marginRight: '10px', marginTop: '2px' }}>¿Cuenta con credito automotriz?</h5>
                                         <div className='form-check'>
                                             <label className='form-check-label'>Si</label>
-                                            <input onChange={this.handleChange} className="form-check-input" type="radio" name="flexRadioDefault2" id="flexRadioDefault2" />
+                                            <input required onChange={this.handleChange} className="form-check-input" type="radio" name="flexRadioDefault2" id="flexRadioDefault2" />
                                         </div>
                                         <div className='form-check' style={{ marginLeft: '20px' }}>
                                             <label className='form-check-label'>No</label>
-                                            <input onChange={this.handleChange} className="form-check-input" type="radio" name="flexRadioDefault2" id="flexRadioDefault2" />
+                                            <input required onChange={this.handleChange} className="form-check-input" type="radio" name="flexRadioDefault2" id="flexRadioDefault2" />
                                         </div>
                                     </div>
                                 </div>

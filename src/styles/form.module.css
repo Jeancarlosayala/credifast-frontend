@@ -121,7 +121,7 @@ input{
   .contenedor_two {
     position: relative;
     width: 100%;
-    min-height: 93.7vh;
+    min-height: 99.9vh;
     background-color: #fff;
     overflow: hidden;
   }
@@ -164,7 +164,7 @@ input{
   .contenedor_two {
     position: relative;
     width: 100%;
-    min-height: 93.7vh;
+    min-height: 92.9vh;
     background-color: #fff;
     overflow: hidden;
   }

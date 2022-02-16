@@ -3,6 +3,7 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import styles from '../styles/login.module.css'
 import finance from '../img/finance.svg'
+import Swal from 'sweetalert2'
 
 export default function Login({ setLoginUser }) {
 
@@ -21,13 +22,17 @@ export default function Login({ setLoginUser }) {
         })
     }
 
-    const login = () => {
+    const login = (e) => {
         axios.post("https://backend-credifast.herokuapp.com/login", user)
             .then(res => {
-                alert(res.data.message)
+                Swal.fire(
+                    res.data.message,
+                    res.data.info,
+                    res.data.icon)
                 setLoginUser(res.data.user)
                 navigate("/form")
             })
+        e.preventDefault()
     }
 
     return (

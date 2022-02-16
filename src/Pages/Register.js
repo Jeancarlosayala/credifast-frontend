@@ -3,6 +3,7 @@ import axios from "axios"
 import { useNavigate } from "react-router-dom"
 import styles from '../styles/login.module.css'
 import finance from '../img/finance.svg'
+import Swal from 'sweetalert2'
 
 const Register = () => {
 
@@ -28,11 +29,22 @@ const Register = () => {
         if (name && email && password && (password === reEnterPassword)) {
             axios.post("https://backend-credifast.herokuapp.com/register", user)
                 .then(res => {
-                    alert(res.data.message)
+                    Swal.fire(
+                        res.data.message,
+                        res.data.info,
+                        res.data.icon)
                     navigate("/login")
                 })
+        } if (name === "" || email === "" || password === "" || reEnterPassword ==="") {
+            Swal.fire(
+                'Campos vacios',
+                'Por favor completa todos los campos solicitados',
+                'error')
         } else {
-            alert("invlid input")
+            Swal.fire(
+                'Las contraseñas no coinciden',
+                'Por favor verifica que las contraseñas sean iguales',
+                'error')
         }
 
     }
