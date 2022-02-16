@@ -60,7 +60,7 @@ export default function Login({ setLoginUser }) {
                                 necesarios</p>
                             <button className={styles.button} onClick={() => navigate('/register')} id="sign-up-button">Registrate</button>
                         </div>
-                        <img
+                        <image
                             src="https://firebasestorage.googleapis.com/v0/b/images-b907b.appspot.com/o/finance.svg?alt=media&token=e42ff8fc-7201-488a-815b-b858c308240f"
                             className={styles.image} />
                     </div>

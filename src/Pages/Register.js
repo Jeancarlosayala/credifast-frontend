@@ -75,7 +75,7 @@ const Register = () => {
                                 necesarios</p>
                             <button className={styles.button} onClick={() => navigate('/login')} id="sign-up-button">Inicia Sesion</button>
                         </div>
-                        <img
+                        <image
                             src="https://firebasestorage.googleapis.com/v0/b/images-b907b.appspot.com/o/finance.svg?alt=media&token=e42ff8fc-7201-488a-815b-b858c308240f"
                             className={styles.image} />
                     </div>
