@@ -11,6 +11,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/" element={<div>Home</div>} />
         <Route path='/form' element={
           user && user._id ? <Form setLoginUser={setLoginUser} /> : <Navigate setLoginUser={setLoginUser} to='/login' />
         } />
