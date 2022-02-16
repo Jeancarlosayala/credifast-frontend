@@ -185,7 +185,7 @@ form {
     top: 10%;
     transform: translate(-50%, 100%);
   }
-  .panels-container {
+  .panels_container {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 2fr 1fr;
   }
@@ -195,7 +195,7 @@ form {
     align-items: center;
     padding: 2.5rem 8%;
   }
-  .panel.content {
+  .content {
     padding-right: 15%;
   }
   .panel p {
@@ -205,18 +205,32 @@ form {
   .image {
     width: 300px;
   }
-  .button.transparent {
+  .transparent {
     width: 110px;
     height: 35px;
     font-size: 0.7rem;
   }
-  .left-panel {
+  .left_panel {
     grid-row: 1/2;
+  }
+  .forms_container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 25%;
   }
 }
 @media (max-width: 570px) {
   form {
     padding: 0 1.5rem;
+  }
+  .forms_container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 15%;
   }
   .image {
     display: none;

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import styles from '../styles/login.module.css'
+import finance from '../img/finance.svg'
 
 export default function Login({ setLoginUser }) {
 
@@ -60,8 +61,9 @@ export default function Login({ setLoginUser }) {
                                 necesarios</p>
                             <button className={styles.button} onClick={() => navigate('/register')} id="sign-up-button">Registrate</button>
                         </div>
-                        <image
-                            src="https://firebasestorage.googleapis.com/v0/b/images-b907b.appspot.com/o/finance.svg?alt=media&token=e42ff8fc-7201-488a-815b-b858c308240f"
+                        <img
+                            src={finance}
+                            alt="finance"
                             className={styles.image} />
                     </div>
                 </div>

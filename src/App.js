@@ -4,6 +4,7 @@ import Login from "./Pages/Login";
 import Register from "./Pages/Register";
 import { useState } from 'react'
 import { Navigate } from "react-router-dom";
+import Home from "./Pages/Home";
 
 function App() {
   const [user, setLoginUser] = useState({})
@@ -11,7 +12,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<div>Home</div>} />
+        <Route path="/" element={<Home />} />
         <Route path='/form' element={
           user && user._id ? <Form setLoginUser={setLoginUser} /> : <Navigate setLoginUser={setLoginUser} to='/login' />
         } />
