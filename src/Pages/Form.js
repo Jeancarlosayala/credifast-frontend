@@ -160,7 +160,7 @@ class Form extends Component {
                                     <h3> Recuerda llenar todos los campos solicitados</h3>
                                     <p>Esto nos ayudara a comprobar tu buro de credito de una forma rapida y segura</p>
                                 </div>
-                                <image
+                                <img
                                     src='https://firebasestorage.googleapis.com/v0/b/images-b907b.appspot.com/o/authentication.svg?alt=media&token=4c3862fc-b524-4966-a03d-f71308369a05'
                                     className={styles.image_form} />
                             </div>
