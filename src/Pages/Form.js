@@ -78,10 +78,19 @@ class Form extends Component {
         return (
             <div>
 
-                <p className="text-center d-md-none d-md-block" style={{color: '#fff', background: '#fac95f'}}>
-                    para poder calcular mejor préstamos para usted,
-                    se revisara su buró de credito y se vera su calificacion,
-                    por favor llene los campos solicitados </p>
+                <div className="mx-auto text-center">
+                    <p className=" d-md-none d-md-block" style={{ color: '#fff', background: '#fac95f' }}>
+                        para poder calcular mejor préstamos para usted,
+                        se revisara su buró de credito y se vera su calificacion,
+                        por favor llene los campos solicitados </p>
+
+                    <img
+                        style={{ width: '50%' }}
+                        src="https://firebasestorage.googleapis.com/v0/b/images-b907b.appspot.com/o/logo.png?alt=media&token=feb7a391-af33-40e5-8313-b4efaae7da0a"
+                        alt="logo"
+                        className="img-fluid d-md-none d-md-block"
+                    />
+                </div>
 
                 <div className={styles.contenedor_two}>
                     <div className={styles.form_contenedor}>
