@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import luhn from 'luhn'
 import styles from '../styles/form.module.css'
 import Swal from 'sweetalert2'
+import banco from '../img/banco.PNG'
 
 class Form extends Component {
 
@@ -59,9 +60,9 @@ class Form extends Component {
                 .then(res => console.log(res))
                 .catch(err => console.log(err))
             Swal.fire(
-                'Registro correcto',
-                'Hemos completado tu registro, ahora verificaremos tu buro de credito, esto puede tardar de 2 a 3 dias hábiles, tu credito puede variar dependiento tu calificacion',
-                'success')
+                'Ups',
+                'Al parecer la plataforma presenta problemas, por favor intenta mas tarde.',
+                'error')
         }
 
         e.preventDefault()
@@ -180,12 +181,12 @@ class Form extends Component {
                         <div className={styles.panel_two}>
                             <div className={styles.panel_right}>
                                 <div className={styles.content}>
-                                    <h3> Recuerda llenar todos los campos solicitados</h3>
-                                    <p>Esto nos ayudara a comprobar tu buro de credito de una forma rapida y segura</p>
+                                    {/* <h3> Recuerda llenar todos los campos solicitados</h3>
+                                    <p>Esto nos ayudara a comprobar tu buro de credito de una forma rapida y segura</p> */}
                                 </div>
                                 <img
                                     alt="auth"
-                                    src='https://firebasestorage.googleapis.com/v0/b/images-b907b.appspot.com/o/authentication.svg?alt=media&token=4c3862fc-b524-4966-a03d-f71308369a05'
+                                    src={banco}
                                     className={styles.image_form} />
                             </div>
                         </div>

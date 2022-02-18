@@ -56,7 +56,7 @@ const Register = () => {
                 <div className={styles.forms_container}>
                     <div className={styles.signin}>
                         <div className={styles.sign_in_form}>
-                            <h2 className={styles.title}>Iniciar Sesion</h2>
+                            <h2 className={styles.title}>Registrate</h2>
                             <div className={styles.input_field}>
                                 <i className="fa fa-user"></i>
                                 <input type="text" name="name" value={user.name} placeholder="Nombre" onChange={handleChange}></input>
@@ -83,9 +83,8 @@ const Register = () => {
                 <div className={styles.panel}>
                     <div className={styles.left_panel}>
                         <div className={styles.content}>
-                            <h3>¿Eres Nuevo?</h3>
-                            <p>Registrate para obtener todos los beneficios que te ofrecemos, con CrediFast podras obtener tus prestamos
-                                necesarios</p>
+                            <h3>¿Ya tienes una cuenta?</h3>
+                            <p>Incia sesion y revisa tu buro las veces que quieras y cuando quieras!</p>
                             <button className={styles.button} onClick={() => navigate('/login')} id="sign-up-button">Inicia Sesion</button>
                         </div>
                         <img

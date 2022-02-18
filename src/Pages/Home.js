@@ -1,4 +1,8 @@
 import styles from '../styles/home.module.css'
+import modelo from '../img/model.PNG'
+import pig from '../img/piggy-bank.png'
+import tel from '../img/tel.PNG'
+import opinion from '../img/opiniones.PNG'
 
 function Home() {
   return (
@@ -6,26 +10,37 @@ function Home() {
       <div className="mx-auto">
         <section className={styles.section}>
           <div className={styles.text_container}>
-            <p>Obten el credito que buscas</p>
-            <p>Credito seguro y con planes que se adaptan a tus necesidades</p>
-            <a href='/form'><button className={styles.hire_btn}>Obten tu credito</button></a>
+            <p>Consulta tu buro de credito</p>
+            <p>Convertimos tu consulta de buro en asesoria personalizada para conocer a quien y cuanto debes</p>
+            <a href='/form'><button className={styles.hire_btn}>Comienza ahora, es gratis</button></a>
           </div>
 
           <img
             alt='prestamo'
-            src='https://firebasestorage.googleapis.com/v0/b/images-b907b.appspot.com/o/prestamo.png?alt=media&token=052113ef-19d0-43f2-b882-aded351f9d7a'
+            src={modelo}
             className={styles.model} />
         </section>
       </div>
 
-      <section style={{ height: '200px' }}>
-        <div>
-          <img
-            className="img-fluid"
-            src="https://firebasestorage.googleapis.com/v0/b/images-b907b.appspot.com/o/Captura.PNG?alt=media&token=194752c5-df4a-4a4b-b84f-3ec60f1be8f3"
-            alt="cap" />
-        </div>
+      <section className={styles.benefits}>
+        <img
+          src={pig}
+          alt="benefits"
+        />
+
+        <img
+          src={tel}
+          alt="benefits"
+        />
       </section>
+
+      <section className={styles.opinion}>
+        <img
+          src={opinion}
+          alt="opiniones"
+        />
+      </section>
+
       <section className={styles.footer}>
         <h5 style={{ marginLeft: '10px', padding: '6px' }}>CrediFast</h5>
 

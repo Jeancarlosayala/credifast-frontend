@@ -17,6 +17,7 @@
   font-size: 22px;
   line-height: 50px;
   color: #403e3e;
+  width: 70%;
 }
 .text_container p {
   line-height: 0;
@@ -29,7 +30,7 @@
   transform: (-13%, -42%);
 }
 .text_container button {
-  width: 130px;
+  width: 200px;
   height: 42px;
   border-radius: 10px;
   font-family: calibri;
@@ -46,16 +47,38 @@
 .model {
   height: 560px;
   position: absolute;
-  bottom: 40px;
+  bottom: 0px;
   left: 85%;
   transform: translateX(-70%);
   z-index: 1;
 }
 .footer {
-  margin-top: 28%;
+  margin-top: 2%;
   background: #ffd82a;
   color: #fff;
 }
+
+.benefits{
+  padding: 20px;
+  width: 50%;
+  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(2, 100%);
+}
+
+.benefits img{
+  width: 80%;
+}
+
+.opinion{
+  padding: 20px;
+  width: 100%;
+  text-align: center;
+}
+.opinion img{
+  width: 100%;
+}
+
 @media (max-width: 1167px) {
   .text_container p:nth-child(1) {
     font-family: calibri;

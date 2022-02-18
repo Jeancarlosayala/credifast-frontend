@@ -37,7 +37,7 @@ export default function Login({ setLoginUser }) {
 
     return (
 
-        <div>
+        <div className='mx-auto'>
             <div className={styles.contenedor}>
                 <div className={styles.forms_container}>
                     <div className={styles.signin}>
@@ -62,8 +62,7 @@ export default function Login({ setLoginUser }) {
                     <div className={styles.left_panel}>
                         <div className={styles.content}>
                             <h3>¿Eres Nuevo?</h3>
-                            <p>Registrate para obtener todos los beneficios que te ofrecemos, con CrediFast podras obtener tus prestamos
-                                necesarios</p>
+                            <p>Registrate y revisa tu buro cuando quieras, es facil y rapido!!</p>
                             <button className={styles.button} onClick={() => navigate('/register')} id="sign-up-button">Registrate</button>
                         </div>
                         <img

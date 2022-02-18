@@ -5,12 +5,14 @@ import Register from "./Pages/Register";
 import { useState } from 'react'
 import { Navigate } from "react-router-dom";
 import Home from "./Pages/Home";
+import NavBar from "./components/NavBar";
 
 function App() {
   const [user, setLoginUser] = useState({})
 
   return (
     <BrowserRouter>
+      <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path='/form' element={
