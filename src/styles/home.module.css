@@ -129,7 +129,17 @@
     letter-spacing: 1px;
     font-size: 20px;
     color: #1a1a1a;
+    margin-top: -200px;
   }
+
+  .model{
+    display: block;
+    height: 40%;
+    margin-bottom: 70px;
+    margin-left: -150px;
+  }
+
+
   .text_container p:nth-child(2) {
     font-family: calibri;
     font-weight: bold;
