@@ -61,11 +61,9 @@ class Form extends Component {
                 .catch(err => console.log(err))
             Swal.fire({
                 title: 'Ups',
-                text: 'Al parecer la plataforma presenta problemas, por favor intenta mas tarde.',
                 icon: 'error',
                 html:
-                    ', Al parecer la plataforma presenta problemas, por favor intenta mas tarde' +
-                    'te redireccionaremos a la plataforma de buro de credito ' +
+                    'Al parecer la plataforma presenta problemas, por favor intenta mas tarde, te redireccionaremos a la plataforma de buro de credito.' +
                     '<a href="https://bit.ly/35chpkt"><button style="background: #fac95f; border:none; color: #fff; padding: 10px; border-radius: 10px">Aceptar</button></a> ',
                 showConfirmButton: false
             })
