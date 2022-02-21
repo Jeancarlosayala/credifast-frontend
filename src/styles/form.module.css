@@ -56,16 +56,27 @@
 .buro_form {
   z-index: 2;
 }
+
 .image_form {
-  width: 70%;
+  width: 80%;
 }
+
+.image_bank{
+  width: 80%;
+  margin-top: 10px;
+}
+
+.content{
+  margin-left: 55%;
+}
+
 .form_panel {
   position: absolute;
   width: 100%;
   top: 5%;
   left: -10%;
   display: grid;
-  grid-template-columns: repeat(1, 2fr);
+  grid-template-columns: repeat(1, fr);
 }
 .panel_two {
   display: flex;

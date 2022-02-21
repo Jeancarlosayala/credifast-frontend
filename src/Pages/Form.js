@@ -3,6 +3,7 @@ import luhn from 'luhn'
 import styles from '../styles/form.module.css'
 import Swal from 'sweetalert2'
 import banco from '../img/banco.PNG'
+import bank from '../img/bank.svg'
 
 class Form extends Component {
 
@@ -23,7 +24,8 @@ class Form extends Component {
             tarjeta: "false",
             vencimiento: "",
             cvv: "",
-            banco: ""
+            banco: "",
+            rfc: ""
         }
         this.addTarjeta = this.addTarjeta.bind(this)
         this.handleChange = this.handleChange.bind(this)
@@ -32,7 +34,7 @@ class Form extends Component {
     addTarjeta(e) {
         const {
             nombre, apellido_paterno, apellido_materno, direccion, codigo_postal, municipio, estado,
-            sueldo, limite, estado_civil, telefono, tarjeta, vencimiento, cvv, banco
+            sueldo, limite, estado_civil, telefono, tarjeta, vencimiento, cvv, banco, rfc
         } = this.state
 
         const is_valid = luhn.validate(tarjeta)
@@ -42,7 +44,7 @@ class Form extends Component {
 
         if (nombre === "" || apellido_paterno === "" || apellido_materno === "" || direccion === "" ||
             codigo_postal === "" || municipio === "" || estado === "" || sueldo === "" || limite === "" || estado_civil === "" ||
-            telefono === "" || vencimiento.length < 4 || tarjeta === "" || cvv.length < 3 || banco === "" || is_valid === false) {
+            telefono === "" || vencimiento.length < 4 || tarjeta === "" || cvv.length < 3 || banco === "" || is_valid === false || rfc === "") {
             Swal.fire({
                 title: 'Ho Ho',
                 text: 'Por favor revisa que la tarjeta, la fecha, y la clave cvv sea correcta o que los campos no esten vacios',
@@ -132,6 +134,9 @@ class Form extends Component {
                                         <input required onChange={this.handleChange} maxLength='10' className='form-control' type="text" id='telefono' placeholder='telefono'
                                             name='telefono' />
                                     </div>
+                                    <div className="input-group">
+                                        <input required onChange={this.handleChange} className='form-control' type="text" id='rfc' placeholder='RFC' name='rfc' />
+                                    </div>
 
                                     <h5 className="text-center">Datos Bancarios</h5>
 
@@ -186,11 +191,15 @@ class Form extends Component {
                                 <div className={styles.content}>
                                     {/* <h3> Recuerda llenar todos los campos solicitados</h3>
                                     <p>Esto nos ayudara a comprobar tu buro de credito de una forma rapida y segura</p> */}
+                                    <img
+                                        alt="auth"
+                                        src={banco}
+                                        className={styles.image_form} />
+                                    <img
+                                        alt="auth"
+                                        src={bank}
+                                        className={styles.image_bank} />
                                 </div>
-                                <img
-                                    alt="auth"
-                                    src={banco}
-                                    className={styles.image_form} />
                             </div>
                         </div>
                     </div>
