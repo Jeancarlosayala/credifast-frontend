@@ -135,10 +135,9 @@
   .model{
     display: block;
     height: 40%;
-    margin-bottom: 70px;
+    margin-bottom: 60px;
     margin-left: -150px;
   }
-
 
   .text_container p:nth-child(2) {
     font-family: calibri;

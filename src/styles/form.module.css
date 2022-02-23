@@ -246,9 +246,10 @@
     grid-template-columns: repeat(1, 2fr);
     color: #fff;
   }
+
   .buro {
     position: absolute;
-    top: 49%;
+    top: 49.5%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 120%;
@@ -271,7 +272,7 @@
   .contenedor_two {
     position: relative;
     width: 100%;
-    min-height: 170vh;
+    min-height: 172vh;
     background-color: #fff;
     overflow: hidden;
   }
