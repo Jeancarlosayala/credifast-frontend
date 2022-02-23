@@ -256,6 +256,15 @@
     z-index: 8;
     transition: .5s ease-in-out;
   }
+
+  .input_box input{
+    width: 100%;
+  }
+
+   .data_bank{
+    width: 350px;
+  }
+
   .contenedor_two::before {
     content: '';
     position: absolute;

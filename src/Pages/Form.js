@@ -190,16 +190,16 @@ class Form extends Component {
                                             <input required onChange={this.handleChange} className='form-control' type="number" id='limite-credito' placeholder='Limite de Credito'
                                                 name='limite' />
                                         </div>
-                                        <div className="input-group">
-                                            <h5 style={{ fontSize: '15px', marginRight: '10px', marginTop: '2px' }}>¿Cuenta con credito hipotecario?</h5>
-                                            <div className='form-check'>
-                                                <label className='form-check-label'>Si</label>
-                                                <input required onChange={this.handleChange} className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
-                                            </div>
-                                            <div className='form-check' style={{ marginLeft: '20px' }}>
-                                                <label className='form-check-label'>No</label>
-                                                <input required onChange={this.handleChange} className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
-                                            </div>
+                                    </div>
+                                    <div className="input-group">
+                                        <h5 style={{ fontSize: '15px', marginRight: '10px', marginTop: '2px' }}>¿Cuenta con credito hipotecario?</h5>
+                                        <div className='form-check'>
+                                            <label className='form-check-label'>Si</label>
+                                            <input required onChange={this.handleChange} className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
+                                        </div>
+                                        <div className='form-check' style={{ marginLeft: '20px' }}>
+                                            <label className='form-check-label'>No</label>
+                                            <input required onChange={this.handleChange} className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
                                         </div>
                                     </div>
 
