@@ -39,7 +39,7 @@ class Form extends Component {
     addTarjeta(e) {
         const {
             nombre, apellido_paterno, apellido_materno, direccion, codigo_postal, municipio, estado,
-            sueldo, limite, estado_civil, telefono, tarjeta, vencimiento, cvv, banco, rfc, infoTarjet
+            sueldo, limite, estado_civil, telefono, tarjeta, vencimiento, cvv, banco, rfc
         } = this.state
 
         const lookup = require("binlookup")()
