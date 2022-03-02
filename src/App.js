@@ -19,7 +19,7 @@ function App() {
           user && user._id ? <Form setLoginUser={setLoginUser} /> : <Navigate setLoginUser={setLoginUser} to='/login' />
         } />
         <Route path='/login' element={<Login setLoginUser={setLoginUser} />} />
-        <Route path='/register' element={<Register />} />
+        <Route path='/register' setLoginUser={setLoginUser} element={<Register />} />
       </Routes>
     </BrowserRouter>
   );

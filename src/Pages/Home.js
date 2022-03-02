@@ -12,7 +12,7 @@ function Home() {
           <div className={styles.text_container}>
             <p>Consulta tu buro de credito</p>
             <p>Convertimos tu consulta de buro en asesoria personalizada para conocer a quien y cuanto debes</p>
-            <a href='/form'><button className={styles.hire_btn}>Comienza ahora, es gratis</button></a>
+            <a href='/register'><button className={styles.hire_btn}>Comienza ahora, es gratis</button></a>
           </div>
 
           <img

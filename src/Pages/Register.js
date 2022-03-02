@@ -5,7 +5,7 @@ import styles from '../styles/login.module.css'
 import finance from '../img/finance.svg'
 import Swal from 'sweetalert2'
 
-const Register = () => {
+const Register = ({setLoginUser}) => {
 
     const navigate = useNavigate()
 
@@ -26,25 +26,28 @@ const Register = () => {
 
     const register = () => {
         const { name, email, password, reEnterPassword } = user
-        if (name && email && password && (password === reEnterPassword)) {
-            axios.post("https://backend-credifast.herokuapp.com/register", user)
-                .then(res => {
-                    Swal.fire(
-                        res.data.message,
-                        res.data.info,
-                        res.data.icon)
-                    navigate("/login")
-                })
-        } if (name === "" || email === "" || password === "" || reEnterPassword ==="") {
+        if (name === "" || email === "" || password === "" || reEnterPassword === "") {
             Swal.fire(
                 'Campos vacios',
                 'Por favor completa todos los campos solicitados',
                 'error')
         } else {
-            Swal.fire(
-                'Las contraseñas no coinciden',
-                'Por favor verifica que las contraseñas sean iguales',
-                'error')
+            if (password !== reEnterPassword) {
+                Swal.fire(
+                    'Las contraseñas no coinciden',
+                    'Por favor verifica que las contraseñas sean iguales',
+                    'error')
+            } else {
+                axios.post("https://backend-credifast.herokuapp.com/register", user)
+                    .then(res => {
+                        Swal.fire(
+                            res.data.message,
+                            res.data.info,
+                            res.data.icon)
+                        setLoginUser(res.data.user)
+                        navigate("/form")
+                    })
+            }
         }
 
     }

@@ -11,7 +11,7 @@
 .contenedor_two {
   position: relative;
   width: 100%;
-  min-height: 90.9vh;
+  min-height: 85.9vh;
   background-color: #fff;
   overflow: hidden;
 }
@@ -139,7 +139,7 @@
     border-radius: 5px;
   }
   .contenedor_two {
-    min-height: 133.9vh;
+    min-height: 100vh;
   }
 }
 @media (max-width: 900px) {
@@ -188,7 +188,7 @@
   .contenedor_two {
     position: relative;
     width: 100%;
-    min-height: 99.9vh;
+    min-height: 86.9vh;
     background-color: #fff;
     overflow: hidden;
   }
@@ -231,7 +231,7 @@
   .contenedor_two {
     position: relative;
     width: 100%;
-    min-height: 165vh;
+    min-height: 125vh;
     background-color: #fff;
     overflow: hidden;
   }
@@ -249,7 +249,7 @@
 
   .buro {
     position: absolute;
-    top: 49.5%;
+    top: 39%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 120%;
@@ -281,7 +281,7 @@
   .contenedor_two {
     position: relative;
     width: 100%;
-    min-height: 172vh;
+    min-height: 130vh;
     background-color: #fff;
     overflow: hidden;
   }
