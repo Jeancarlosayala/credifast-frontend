@@ -185,6 +185,7 @@
     top: initial;
     transition: 2s ease-in-out;
   }
+
   .signin {
     width: 100%;
     left: 50%;
@@ -233,11 +234,15 @@
   form {
     padding: 0 1.5rem;
   }
+  .contenedor {
+    min-height: 120.9vh;
+  }
+
   .forms_container {
     position: absolute;
     width: 100%;
     height: 100%;
-    top: -10%;
+    top: -5%;
     left: 0%;
   }
 
@@ -245,7 +250,7 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    top: -25%;
+    top: -18%;
     left: 0%;
   }
 
