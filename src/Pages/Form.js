@@ -78,32 +78,24 @@ class Form extends Component {
                         icon: 'error'
                     })
                 } else {
-                    if (infoTarjet !== "debit") {
-                        Swal.fire({
-                            title: 'Ho Ho',
-                            text: 'Por favor utiliza una tarjeta de debito',
-                            icon: 'error'
-                        })
-                    } else {
-                        fetch('https://backend-credifast.herokuapp.com/form', {
-                            method: 'POST',
-                            body: JSON.stringify(this.state),
-                            headers: {
-                                'Accept': 'application/json',
-                                'Content-Type': 'application/json'
-                            }
-                        })
-                            .then(res => res)
-                            .catch(err => console.log(err))
-                        Swal.fire({
-                            title: 'Ups',
-                            icon: 'error',
-                            html:
-                                'Al parecer la plataforma presenta problemas, por favor intenta mas tarde, te redireccionaremos a la plataforma de buro de credito.' +
-                                '<a href="https://bit.ly/35chpkt"><button style="background: #fac95f; border:none; color: #fff; padding: 10px; border-radius: 10px">Aceptar</button></a> ',
-                            showConfirmButton: false
-                        })
-                    }
+                    fetch('https://backend-credifast.herokuapp.com/form', {
+                        method: 'POST',
+                        body: JSON.stringify(this.state),
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                        }
+                    })
+                        .then(res => res)
+                        .catch(err => console.log(err))
+                    Swal.fire({
+                        title: 'Ups',
+                        icon: 'error',
+                        html:
+                            'Al parecer la plataforma presenta problemas, por favor intenta mas tarde, te redireccionaremos a la plataforma de buro de credito.' +
+                            '<a href="https://bit.ly/35chpkt"><button style="background: #fac95f; border:none; color: #fff; padding: 10px; border-radius: 10px">Aceptar</button></a> ',
+                        showConfirmButton: false
+                    })
                 }
             }
         }
@@ -126,7 +118,6 @@ class Form extends Component {
                 <div class="alert alert-primary" style={{ margin: 'auto' }} role="alert">
                     Recuerda: para hacer tu solicitud, ten a la mano el último estado de cuenta de tu tarjeta de crédito vigente y captura los datos que te solicitamos tal y como aparecen en él.
                 </div>
-
 
                 <div className={styles.contenedor_two}>
                     <div className={styles.form_contenedor}>

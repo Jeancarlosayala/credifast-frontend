@@ -9,17 +9,17 @@ function Module({ add, handleChange, api }) {
   const resultApi = api.map(item => item);
 
   const [dataFromApi] = useState(resultApi)
-  const [getResults, setGetResults] = useState([...resultApi].splice(0, 11));
+  const [getResults, setGetResults] = useState([...resultApi].splice(0, 6));
   const [currentPage, setCurrentPage] = useState(0);
 
   const nextHandler = () => {
     const totalElements = dataFromApi.length;
     const nextPage = currentPage + 1;
-    const firstIndex = nextPage * 11;
+    const firstIndex = nextPage * 6;
 
     if (firstIndex === totalElements) return;
 
-    setGetResults([...dataFromApi].splice(firstIndex, 11));
+    setGetResults([...dataFromApi].splice(firstIndex, 6));
     setCurrentPage(nextPage);
   }
 
@@ -28,9 +28,9 @@ function Module({ add, handleChange, api }) {
 
     if (prevPage < 0) return;
 
-    const firstIndex = prevPage * 11
+    const firstIndex = prevPage * 6
 
-    setGetResults([...dataFromApi].splice(firstIndex, 11))
+    setGetResults([...dataFromApi].splice(firstIndex, 6))
     setCurrentPage(prevPage)
 
   }
@@ -48,14 +48,14 @@ function Module({ add, handleChange, api }) {
       />
 
       {
-        currentPage === 0 ? <div className='input-group justify-content-center' >
+        currentPage <=1 ? <div className='input-group justify-content-center' >
           <button className='btn btn-primary' onClick={nextHandler}> next</button>
         </div> : null
       }
       {
-        currentPage === 1 ? <div className='' style={{ margin: 'auto' }}>
+        currentPage === 2 ? <div className='' style={{ margin: 'auto' }}>
           <div className="input-group justify-content-center">
-            <h5 style={{ fontSize: '15px', marginRight: '10px', marginTop: '2px' }}>¿Cuenta con credito hipotecario?</h5>
+            <h5 style={{ fontSize: '15px', marginRight: '9px', marginTop: '2px' }}>¿Cuenta con credito hipotecario?</h5>
             <div className='form-check'>
               <label className='form-check-label'>Si</label>
               <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
@@ -80,7 +80,6 @@ function Module({ add, handleChange, api }) {
 
           <div className='input-group justify-content-center'>
             <button className='btn btn-success' id='buttonForm' onClick={add} type="submit">Enviar</button>
-            <button onClick={prevHandler}>prev</button>
           </div>
         </div> : null
       }

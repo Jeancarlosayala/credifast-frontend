@@ -18,7 +18,6 @@ function Pagination({ items, handleChange }) {
             )
           })
         }
-        
       </div>
     </form>
   );

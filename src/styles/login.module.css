@@ -237,7 +237,15 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    top: -8%;
+    top: -10%;
+    left: 0%;
+  }
+
+  .forms_container_register {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: -25%;
     left: 0%;
   }
 

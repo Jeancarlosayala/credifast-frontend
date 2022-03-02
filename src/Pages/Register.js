@@ -44,8 +44,7 @@ const Register = ({setLoginUser}) => {
                             res.data.message,
                             res.data.info,
                             res.data.icon)
-                        setLoginUser(res.data.user)
-                        navigate("/form")
+                        navigate("/login")
                     })
             }
         }
@@ -56,7 +55,7 @@ const Register = ({setLoginUser}) => {
 
         <div>
             <div className={styles.contenedor}>
-                <div className={styles.forms_container}>
+                <div className={styles.forms_container_register}>
                     <div className={styles.signin}>
                         <div className={styles.sign_in_form}>
                             <h2 className={styles.title}>Registrate</h2>
