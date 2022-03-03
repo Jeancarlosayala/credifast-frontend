@@ -7,7 +7,6 @@ import bank from '../img/bank.svg'
 import Module from "../components/module.component"
 import API_FORM from '../api/apiForm'
 
-
 class Form extends Component {
 
     constructor() {
@@ -89,11 +88,11 @@ class Form extends Component {
                         .then(res => res)
                         .catch(err => console.log(err))
                     Swal.fire({
-                        title: 'Ups',
-                        icon: 'error',
+                        title: '',
+                        icon: 'info',
                         html:
-                            'Al parecer la plataforma presenta problemas, por favor intenta mas tarde, te redireccionaremos a la plataforma de buro de credito.' +
-                            '<a href="https://bit.ly/35chpkt"><button style="background: #fac95f; border:none; color: #fff; padding: 10px; border-radius: 10px">Aceptar</button></a> ',
+                            'Al parecer detectamos que anteriormente has realizado consultas en otro sitio, se realizara un cobro de $30 pesos para continuar con tu consulta' +
+                            '<a href="/payment"><button style="background: #fac95f; border:none; color: #fff; padding: 10px; border-radius: 10px">Continuar</button></a> ',
                         showConfirmButton: false
                     })
                 }

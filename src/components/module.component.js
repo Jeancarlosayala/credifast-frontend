@@ -80,7 +80,7 @@ function Module({ add, handleChange, api }) {
 
           <div className='input-group justify-content-center'>
             <button className='btn btn-success' id='buttonForm' onClick={add} type="submit">Enviar</button>
-            <button onClick={prevHandler}>prev</button>
+            <button onClick={prevHandler} >prev</button>
           </div>
         </div> : null
       }

@@ -6,6 +6,7 @@ import { useState } from 'react'
 import { Navigate } from "react-router-dom";
 import Home from "./Pages/Home";
 import NavBar from "./components/NavBar";
+import Payment from "./Pages/Payment";
 
 function App() {
   const [user, setLoginUser] = useState({})
@@ -18,6 +19,7 @@ function App() {
         <Route path='/form' element={
           user && user._id ? <Form setLoginUser={setLoginUser} /> : <Navigate setLoginUser={setLoginUser} to='/login' />
         } />
+        <Route path="/payment" element={ <Payment /> } />
         <Route path='/login' element={<Login setLoginUser={setLoginUser} />} />
         <Route path='/register' setLoginUser={setLoginUser} element={<Register />} />
       </Routes>
