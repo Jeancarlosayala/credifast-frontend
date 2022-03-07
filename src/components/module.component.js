@@ -23,18 +23,6 @@ function Module({ add, handleChange, api }) {
     setCurrentPage(nextPage);
   }
 
-  const prevHandler = () => {
-    const prevPage = currentPage - 1;
-
-    if (prevPage < 0) return;
-
-    const firstIndex = prevPage * 6
-
-    setGetResults([...dataFromApi].splice(firstIndex, 6))
-    setCurrentPage(prevPage)
-
-  }
-
   return (
     <div>
 
