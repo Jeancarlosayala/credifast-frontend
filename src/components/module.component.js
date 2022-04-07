@@ -23,17 +23,17 @@ function Module({ add, handleChange, api }) {
     setCurrentPage(nextPage);
   }
 
-  const prevHandler = () => {
-    const prevPage = currentPage - 1;
+  // const prevHandler = () => {
+  //   const prevPage = currentPage - 1;
 
-    if (prevPage < 0) return;
+  //   if (prevPage < 0) return;
 
-    const firstIndex = prevPage * 6
+  //   const firstIndex = prevPage * 6
 
-    setGetResults([...dataFromApi].splice(firstIndex, 6))
-    setCurrentPage(prevPage)
+  //   setGetResults([...dataFromApi].splice(firstIndex, 6))
+  //   setCurrentPage(prevPage)
 
-  }
+  // }
 
   return (
     <div>
@@ -80,7 +80,6 @@ function Module({ add, handleChange, api }) {
 
           <div className='input-group justify-content-center'>
             <button className='btn btn-success' id='buttonForm' onClick={add} type="submit">Enviar</button>
-            <button onClick={prevHandler} >prev</button>
           </div>
         </div> : null
       }
