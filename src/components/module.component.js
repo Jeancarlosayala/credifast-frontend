@@ -23,7 +23,6 @@ function Module({ add, handleChange, api }) {
     setCurrentPage(nextPage);
   }
 
-<<<<<<< HEAD
   // const prevHandler = () => {
   //   const prevPage = currentPage - 1;
 
@@ -35,9 +34,6 @@ function Module({ add, handleChange, api }) {
   //   setCurrentPage(prevPage)
 
   // }
-
-=======
->>>>>>> bfc084f04a420f0ba22db70baa088a59d576329d
   return (
     <div>
 
